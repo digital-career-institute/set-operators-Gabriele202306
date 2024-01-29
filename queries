@@ -1,0 +1,27 @@
+-- 1
+select * from students
+intersect 
+select * from teachers;
+
+-- 2
+SELECT students.student_id, students.student_name, students.course_id,
+       teachers.teacher_id, teachers.teacher_name
+FROM students
+INNER JOIN teachers ON students.course_id = teachers.course_id;
+
+-- 3
+SELECT student_id, student_name, course_id
+FROM students
+EXCEPT
+SELECT student_id, student_name, course_id
+FROM teachers;
+
+-- 4
+SELECT students.student_id, students.student_name, students.course_id,
+       teachers.teacher_id, teachers.teacher_name
+FROM students
+RIGHT OUTER JOIN teachers ON students.course_id = teachers.course_id;
+
+
+
+
